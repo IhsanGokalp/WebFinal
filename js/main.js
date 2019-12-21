@@ -1,33 +1,29 @@
-
-
-
-  // Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyCezPhy7Vwtoe3W4hWU6xmEs76AvU-97UI",
-  authDomain: "form-submit-c314b.firebaseapp.com",
-  databaseURL: "https://form-submit-c314b.firebaseio.com",
-  projectId: "form-submit-c314b",
-  storageBucket: "form-submit-c314b.appspot.com",
-  messagingSenderId: "486529953954",
-  appId: "1:486529953954:web:ed5de350cfd56d62d967fb",
-  measurementId: "G-SYMMDZT7M9"
+ // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAZuk5Jgg_lOSnZU8eRKlH-00JvK98QZjQ",
+    authDomain: "finalweb-8ff97.firebaseapp.com",
+    databaseURL: "https://finalweb-8ff97.firebaseio.com",
+    projectId: "finalweb-8ff97",
+    storageBucket: "finalweb-8ff97.appspot.com",
+    messagingSenderId: "196707181696",
+    appId: "1:196707181696:web:fdb3fa6823aad020907265"
 };
-// Initialize Firebase
+ // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-
+  
+var messagesRef = firebase.database().ref('contactformmessages');
 $('#contact-form').submit(function(e) {
-    e.preventDefault();
- 
-    var newMessageRef = messagesRef.push();
-    newMessageRef.set({
-        name: $('.fullname').val(),
-        email: $('.email').val(),
-        subject: $('.subject').val(),
-        message: $('.message').val()
-    });
- 
-    $('.success-message').show();
- 
-    $('#contact-form')[0].reset();
+  e.preventDefault();
+
+  var newMessageRef = messagesRef.push();
+  newMessageRef.set({
+      name: $('.fullname').val(),
+      email: $('.email').val(),
+      subject: $('.subject').val(),
+      message: $('.message').val()
+  });
+
+  $('.success-message').show();
+
+  $('#contact-form')[0].reset();
 });
